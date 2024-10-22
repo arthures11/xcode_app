@@ -1,0 +1,11 @@
+spring.application.name=nbp-api
+port =8080
+server.port=8080
+spring.jpa.properties.hibernate.globally_quoted_identifiers=true
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.jakarta.persistence.sharedCache.mode = ALL
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=12345

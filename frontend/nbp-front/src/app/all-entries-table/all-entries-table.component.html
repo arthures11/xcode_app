@@ -1,0 +1,43 @@
+<div class="history-container">
+  <div class="history-card">
+    <div class="header">
+      <h2>Currency Request History</h2>
+      <button
+        (click)="loadRequests()"
+        class="refresh-button"
+        [disabled]="isLoading">
+        <span *ngIf="!isLoading">🔄 Refresh</span>
+        <span *ngIf="isLoading">Loading...</span>
+      </button>
+    </div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+
+    <div class="table-container">
+      <table *ngIf="requests.length > 0">
+        <thead>
+        <tr>
+          <th>Currency</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let request of requests">
+          <td>{{ request.currency }}</td>
+          <td>{{ request.name }}</td>
+          <td>{{ formatDate(request.date) }}</td>
+          <td>{{ request.value.toFixed(4) }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="!isLoading && requests.length === 0" class="no-data">
+        No currency requests found.
+      </div>
+    </div>
+  </div>
+</div>
